@@ -22,9 +22,13 @@ data "aws_iam_policy_document" "dynamodb_inline_policy" {
   statement {
     actions = [
       "dynamodb:PutItem",
+      "logs:CreateLogGroup",
+      "logs:CreateLogStream",
+      "logs:PutLogEvents"
     ]
     resources = [
-      "${aws_dynamodb_table.step_function_table.arn}"
+      "${aws_dynamodb_table.step_function_table.arn}",
+      "arn:aws:logs:${var.aws_region}:${local.account_id}:log-group:/aws/lambda/${var.lambda_name}:*"
     ]
   }
 }

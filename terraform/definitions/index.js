@@ -12,7 +12,7 @@ exports.lambda_handler = (event, context, callback) => {
 
       var message = "Hi! This is message no " + i.toString();
       var params = {
-          TableName: "StepDataRecords",
+          TableName: process.env.DYNAMODB,
           Item:{
               "MessageId": messageId,
               "Message": message

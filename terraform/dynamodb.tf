@@ -1,5 +1,5 @@
 resource "aws_dynamodb_table" "step_function_table" {
-  name           = "StepDataRecords"
+  name           = var.dynamodb_table_name
   billing_mode   = "PROVISIONED"
   read_capacity  = 10
   write_capacity = 10

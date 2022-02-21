@@ -5,7 +5,7 @@ module "step_function" {
 
   definition = templatefile("./definitions/step_functions.json", {
     lambdaArn         = aws_lambda_function.step-function-lambda.arn,
-    DynamoDbTableName = "StepDataRecords",
+    DynamoDbTableName = var.dynamodb_table_name,
     QueueUrl          = aws_sqs_queue.sfn_queue.url,
   })
 
