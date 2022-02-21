@@ -10,8 +10,5 @@ resource "aws_dynamodb_table" "step_function_table" {
     type = "S"
   }
 
-  tags = {
-    Name        = "StepDataRecords"
-    Environment = "dev"
-  }
+  tags = local.tags
 }
