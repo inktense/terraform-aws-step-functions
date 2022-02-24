@@ -50,19 +50,4 @@ data "aws_iam_policy_document" "dynamodb_role_trust" {
 #--------------------------------------------------------------
 data "aws_iam_policy_document" "sqs_iam_policy" {
   policy_id = "SEScomplaintsQueueTopic"
-  # statement {
-  #   sid       = "SEScomplaintsQueueTopic"
-  #   effect    = "Allow"
-  #   actions   = ["SQS:SendMessage"]
-  #   resources = [aws_sqs_queue.ses_complaints_queue.arn]
-  #   principals {
-  #     identifiers = ["*"]
-  #     type        = "*"
-  #   }
-  #   condition {
-  #     test     = "ArnEquals"
-  #     values   = [aws_sns_topic.ses_complaints_topic.arn]
-  #     variable = "aws:SourceArn"
-  #   }
-  # }
 }

@@ -7,14 +7,5 @@ resource "aws_sqs_queue" "sfn_queue" {
 
   sqs_managed_sse_enabled = true
 
-  #   redrive_policy = jsonencode({
-  #     deadLetterTargetArn = aws_sqs_queue.terraform_queue_deadletter.arn
-  #     maxReceiveCount     = 4
-  #   })
-  #   redrive_allow_policy = jsonencode({
-  #     redrivePermission = "byQueue",
-  #     sourceQueueArns   = ["${aws_sqs_queue.terraform_queue_deadletter.arn}"]
-  #   })
-
   tags = local.tags
 }
